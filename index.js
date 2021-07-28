@@ -24,4 +24,4 @@ mongoose.connect(DB,
     useFindAndModify: false,
   });
 
-  app.listen(PORT, () => console.log(`Connected on Port: ${PORT}`));
+app.listen(PORT, () => console.log(`Connected on Port: ${PORT}`));
