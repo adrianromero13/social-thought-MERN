@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const routes = require('./routes');
+const routes = require('./routes');
 const { DB, PORT } = require('./config');
 
 const app = express();
@@ -13,8 +13,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// app.use(routes);
-// require('./services/passport');
+app.use(routes);
+require('./services/passport');
 
 mongoose.connect(DB,
   {
