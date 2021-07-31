@@ -15,7 +15,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 import reducers from './reducers';
-import App from './App';
+import App from './containers/App';
 
 // enhancers
 const composedEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
