@@ -1,9 +1,11 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Route, Switch } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 // import components
 import Navigation from '../../components/Navigation';
+import Home from '../Home';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,10 +21,14 @@ const App = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-          <Navigation />
-
+      <Grid item xs={12}>
+        <Navigation />
+      </Grid>
       <Grid className={classes.display}>
-          <Typography component='h1' variant='h6'>Application</Typography>
+        <Switch>
+          <Route exact path='/' component={Home} />
+
+        </Switch>
       </Grid>
     </div>
   )
