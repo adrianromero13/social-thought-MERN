@@ -31,6 +31,8 @@
   "dependencies": {
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.11.2",
+    "@mui-treasury/layout": "^4.5.0",
+    "@mui-treasury/mockup": "^1.2.12",
     "axios": "^0.21.1",
     "material-ui-popup-state": "^1.9.0",
     "react": "^17.0.2",
