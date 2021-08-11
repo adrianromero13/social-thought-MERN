@@ -45,12 +45,12 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    {/* <ThemeProvider theme={theme}> */}
       <CssBaseline />
       <Router>
         <App />
       </Router>
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
   </Provider>
   ,
   document.getElementById('root')
