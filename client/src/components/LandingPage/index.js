@@ -4,7 +4,7 @@ import {
   Switch,
   useHistory,
 } from 'react-router-dom';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 // import components
@@ -14,6 +14,11 @@ import Signin from '../../containers/Signin';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    '& .MuiButtonBase-root': {
+      margin: theme.spacing(1),
+      width: 300,
+      height: 50,
+    },
   },
   display: {
     display: 'flex',
@@ -36,13 +41,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-  }
+  },
+  // buttonColor: theme.palette.secondary,
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
   const history = useHistory();
-  
+
   const handleRedirect = (location) => {
     history.push(`/landingpage/${location}`);
   }
@@ -61,9 +67,26 @@ const LandingPage = () => {
 
             <div className={classes.centeredContent}>
               <Route exact path='/landingpage'>
-                <Button onClick={() => handleRedirect('signin')}>Log In</Button>
-                <Button onClick={() => handleRedirect('signup')}>Sign Up</Button>
-                <p>check out my code</p>
+                <Button
+                  onClick={() => handleRedirect('signin')}
+                  variant='contained'
+                  color='secondary'
+
+                  fullWidth
+                >Log In</Button>
+                <Button
+                  onClick={() => handleRedirect('signup')}
+                  variant='contained'
+                  color='secondary'
+                  fullWidth
+                >Sign Up</Button>
+                <Typography>
+                  check out my
+                    <Link
+                    href='https://github.com/adrianromero13/social-thought-MERN' // add this to keys
+                    onClick={(e) => e.preventDefault}
+                    > code</Link>
+                </Typography>
               </Route>
               <Route exact path='/landingpage/signup' component={Signup} />
               <Route exact path='/landingpage/signin' component={Signin} />

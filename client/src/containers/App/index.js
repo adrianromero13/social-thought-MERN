@@ -52,9 +52,11 @@ const App = () => {
           </div>
 
           <div className={classes.rightPanel}>
+            {/* add logic to redirect to home when token is present */}
             <Route exact path='/' component={Home} />
           </div>
           </Route>
+          {/* add logic to redirect to this page if no token is found on device */}
         <Route path='/landingpage' component={LandingPage} />
 
         </Grid>
