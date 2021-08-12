@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
 // import components 
+import { Input } from '../../components/Constants';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,6 +59,43 @@ const Signup = (props) => {
         Sign up
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.root}>
+        <Input
+        inputRef={register('firstName', { required: true })}
+        name='firstName'
+        label='First Name'
+        control={control}
+        defaultValue=''
+        rules={{ required: 'First Name Required'}}
+        type='text'
+        />
+        <Input 
+        inputRef={register('lastName', { required: true })}
+        name='lastName'
+        label='Last Name'
+        control={control}
+        defaultValue=''
+        rules={{ required: 'Last Name Required' }}
+        type='text'
+        />
+        <Input
+          inputRef={register('email', { required: true })}
+          name='email'
+          label='E-mail'
+          autoComplete='email'
+          control={control}
+          defaultValue=''
+          rules={{ required: 'Email is Required' }}
+          type='email'
+        />
+        <Input
+          inputRef={register('password', { required: true })}
+          name='password'
+          type='password'
+          label='Password'
+          control={control}
+          defaultValue=''
+          rules={{ required: 'Password is Required' }}
+        />
         <Button type='submit'>Sign Up</Button>
       </form>
     </Grid>
