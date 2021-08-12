@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Signup from '../../containers/Signup';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -56,9 +57,8 @@ const LandingPage = () => {
         </div>
         <div className={classes.rightPanel}>
           <div className={classes.centeredContent}>
-            <Typography>
-              How are you?
-            </Typography>
+            
+            <Signup />
           </div>
         </div>
       </Grid>
