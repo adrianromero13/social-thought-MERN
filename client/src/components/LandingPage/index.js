@@ -1,6 +1,13 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import {
+  Route,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+// import components
 import Signup from '../../containers/Signup';
 
 const useStyles = makeStyles(theme => ({
@@ -15,51 +22,52 @@ const useStyles = makeStyles(theme => ({
     border: '1px solid green',
     marginRight: '5px',
     width: '55%',
-    // alignItems: 'center',
     display: 'flex',
   },
   rightPanel: {
     flexGrow: 1,
     display: 'flex',
     border: '1px solid blue',
-    // position: 'relative',
   },
   centeredContent: {
-    // width: '50%',
-    // height: 'auto',
-    // margin: '0 auto',
-    // textAlign: 'center',
-    // alignSelf: 'center',
-    // border: '3px solid green',
-    // position: 'relative',
-    // top: '40%',
-    // display: 'table-cell',
-    // margin: 'auto',
-    // verticalAlign: 'center',
     display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-    // justifyContent: 'center',
   }
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
+  const history = useHistory();
+  
+  const handleRedirect = (location) => {
+    history.push(`/landingpage/${location}`);
+  }
   return (
     <Grid className={classes.root}>
       <Grid className={classes.display}>
         <div className={classes.leftPanel}>
           <div className={classes.centeredContent}>
             <Typography>
-              Hello
+              This where the logo be
             </Typography>
           </div>
         </div>
         <div className={classes.rightPanel}>
-          <div className={classes.centeredContent}>
-            
-            <Signup />
-          </div>
+          <Switch>
+
+            <div className={classes.centeredContent}>
+              <Route exact path='/landingpage'>
+                <Button onClick={() => handleRedirect('signin')}>Log In</Button>
+                <Button onClick={() => handleRedirect('signup')}>Sign Up</Button>
+                <p>check out my code</p>
+              </Route>
+              <Route exact path='/landingpage/signup' component={Signup} />
+            </div>
+
+          </Switch>
         </div>
       </Grid>
     </Grid>

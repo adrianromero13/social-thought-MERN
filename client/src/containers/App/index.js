@@ -55,7 +55,7 @@ const App = () => {
             <Route exact path='/' component={Home} />
           </div>
           </Route>
-        <Route exact path='/landingpage' component={LandingPage} />
+        <Route path='/landingpage' component={LandingPage} />
 
         </Grid>
       </Switch>
