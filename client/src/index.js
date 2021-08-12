@@ -26,10 +26,13 @@ const logger = createLogger({
 
 const theme = createTheme({
   palette: {
-    type: 'dark',
+    // type: 'dark',
     primary: {
       main: '#00a0b2',
     },
+    secondary: {
+      main: '#00b0ff'
+    }
   }
 });
 
@@ -45,12 +48,12 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* <ThemeProvider theme={theme}> */}
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <App />
       </Router>
-    {/* </ThemeProvider> */}
+    </ThemeProvider>
   </Provider>
   ,
   document.getElementById('root')
