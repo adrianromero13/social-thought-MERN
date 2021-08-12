@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // import components
 import Signup from '../../containers/Signup';
+import Signin from '../../containers/Signin';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,6 +66,7 @@ const LandingPage = () => {
                 <p>check out my code</p>
               </Route>
               <Route exact path='/landingpage/signup' component={Signup} />
+              <Route exact path='/landingpage/signin' component={Signin} />
             </div>
 
           </Switch>
