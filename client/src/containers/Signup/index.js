@@ -99,7 +99,7 @@ const Signup = (props) => {
         <Button 
         type='submit'
         variant='contained'
-        color='primary'
+        color='secondary'
         >Sign Up</Button>
       </form>
     </Grid>

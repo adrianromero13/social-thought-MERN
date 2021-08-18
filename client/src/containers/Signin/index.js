@@ -80,7 +80,7 @@ const Signin = (props) => {
         <Button
         type='submit'
         variant='contained'
-        color='primary'
+        color='secondary'
         >Log In</Button>
       </form>
 
