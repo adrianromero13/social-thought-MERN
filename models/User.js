@@ -29,6 +29,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  friends: [{
+    type: [Schema.Types.ObjectId],
+    ref: 'Friends',
+  }],
   // posts: [{
   //   type: [Schema.Types.ObjectId],
   //   ref: 'Posts',
