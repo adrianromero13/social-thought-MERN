@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
 // import components 
+import { AUTH_USER } from '../../actions/type';
 import { Input } from '../../components/Constants';
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +45,11 @@ const Signup = (props) => {
 
   const onSubmit = async (formValues) => {
     try {
-      alert(`formvalues submitted: \n ${JSON.stringify(formValues)}`);
+      // alert(`formvalues submitted: \n ${JSON.stringify(formValues)}`);
+      const { data } = await axios.post('/api/auth/signup', formValues);
+      localStorage.setItem('token', data.token);
+      dispatch({ type: AUTH_USER, payload: data.token });
+      props.history.push('/signin');
     } catch (e) {
       alert(`Error submitting: ${(e.typeOf() === 'object') ? JSON.stringify(e) : e}`)
     }
@@ -60,22 +65,22 @@ const Signup = (props) => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.root}>
         <Input
-        inputRef={register('firstName', { required: true })}
-        name='firstName'
-        label='First Name'
-        control={control}
-        defaultValue=''
-        rules={{ required: 'First Name Required'}}
-        type='text'
+          inputRef={register('firstName', { required: true })}
+          name='firstName'
+          label='First Name'
+          control={control}
+          defaultValue=''
+          rules={{ required: 'First Name Required' }}
+          type='text'
         />
-        <Input 
-        inputRef={register('lastName', { required: true })}
-        name='lastName'
-        label='Last Name'
-        control={control}
-        defaultValue=''
-        rules={{ required: 'Last Name Required' }}
-        type='text'
+        <Input
+          inputRef={register('lastName', { required: true })}
+          name='lastName'
+          label='Last Name'
+          control={control}
+          defaultValue=''
+          rules={{ required: 'Last Name Required' }}
+          type='text'
         />
         <Input
           inputRef={register('email', { required: true })}
@@ -96,10 +101,10 @@ const Signup = (props) => {
           defaultValue=''
           rules={{ required: 'Password is Required' }}
         />
-        <Button 
-        type='submit'
-        variant='contained'
-        color='secondary'
+        <Button
+          type='submit'
+          variant='contained'
+          color='secondary'
         >Sign Up</Button>
       </form>
     </Grid>
