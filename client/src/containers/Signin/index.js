@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { 
+import {
   Avatar,
   Button,
   Grid,
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
 // components
+// import { AUTH_USER } from '../../actions/type';
 import { Input } from '../../components/Constants';
 
 const useStyles = makeStyles(theme => ({
@@ -58,7 +59,7 @@ const Signin = (props) => {
         Log In
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.root}>
-      <Input
+        <Input
           inputRef={register('email', { required: true })}
           name='email'
           label='E-mail'
@@ -78,9 +79,9 @@ const Signin = (props) => {
           rules={{ required: 'Password is Required' }}
         />
         <Button
-        type='submit'
-        variant='contained'
-        color='secondary'
+          type='submit'
+          variant='contained'
+          color='secondary'
         >Log In</Button>
       </form>
 
